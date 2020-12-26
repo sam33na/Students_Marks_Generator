@@ -35,5 +35,21 @@ class ResultActivity : AppCompatActivity() {
             studentList = resultIntent.getSerializableExtra("studentList") as List<Student>
         }
 
+        val index=studentList.size-1
+        //setting text for ranking
+
+
+    }
+    //map function for positioning ranks and subject marks
+    private fun positionRank():Map<String,Double>
+    {
+        //creating a map w/ name as key and percentage as value
+        for(i in studentList.indices)
+        {
+            positionalMap[studentList[i].name]=studentList[i].percentageObtained()
+        }
+        //sorting array in ascending
+        return  positionalMap.toList()
+                .sortedBy { (key,value)->value }.toMap()
     }
 }
