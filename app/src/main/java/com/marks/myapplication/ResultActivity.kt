@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
+import com.marks.Student
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var first: TextView
@@ -12,6 +13,12 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var stdFirst: TextView
     private lateinit var stdSecond: TextView
     private lateinit var stdThird: TextView
+
+
+    private var studentList: List<Student> = ArrayList()
+    private var positionalMap = mutableMapOf<String, Double>()
+    private var subjectMarks = mutableMapOf<String, Double>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
@@ -22,5 +29,11 @@ class ResultActivity : AppCompatActivity() {
         stdFirst=findViewById(R.id.stdFirst)
         stdSecond=findViewById(R.id.stdSecond)
         stdThird=findViewById(R.id.stdThird)
+
+        val resultIntent = intent
+        if (resultIntent != null){
+            studentList = resultIntent.getSerializableExtra("studentList") as List<Student>
+        }
+
     }
 }
