@@ -1,4 +1,4 @@
-package com.marks
+package com.marks.myapplication
 
 import java.io.Serializable
 

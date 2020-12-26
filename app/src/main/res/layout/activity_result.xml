@@ -1,101 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#A3ADE6"
-    android:orientation="vertical"
-    tools:context=".ResultActivity"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        android:textSize="36dp"
-        android:textColor="@color/white"
-        android:text="Result"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/first"
-        android:layout_width="match_parent"
-        android:layout_marginTop="13dp"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:text="First place"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/second"
-        android:layout_width="match_parent"
-        android:layout_marginTop="13dp"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:text="Second place"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/third"
-        android:layout_width="match_parent"
-        android:layout_marginTop="13dp"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:text="Third place"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#abc"
+    tools:context=".ResultActivity">
 
-    <LinearLayout
-        android:layout_marginTop="25dp"
-        android:background="#7BB5BC"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical">
     <TextView
+        android:id="@+id/tvPosition"
         android:layout_width="match_parent"
-        android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:text="Position"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvFirstPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPosition"/>
+
+    <TextView
+        android:id="@+id/tvSecondPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFirstPosition"/>
+
+    <TextView
+        android:id="@+id/tvThirdPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSecondPosition"/>
+
+    <TextView
+        android:id="@+id/tvSubjectHighest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Highest marks in android"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal" />
-        <TextView
-            android:id="@+id/stdFirst"
-            android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:text="First place with name"
-            android:textAlignment="center"
-            android:layout_gravity="center_horizontal" />
-        <TextView
-            android:id="@+id/stdSecond"
-            android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:text="Second place with name"
-            android:textAlignment="center"
-            android:layout_gravity="center_horizontal" />
-        <TextView
-            android:id="@+id/stdThird"
-            android:layout_width="match_parent"
-            android:layout_marginTop="25dp"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:text="Third place with name"
-            android:textAlignment="center"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvThirdPosition"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvHighest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubjectHighest"/>
+
+    <TextView
+        android:id="@+id/tvSecondHighest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHighest"/>
+
+    <TextView
+        android:id="@+id/tvThirdHighest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSecondHighest"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MarrksGenerator</string>
+    <string name="add_student">add</string>
 </resources>
