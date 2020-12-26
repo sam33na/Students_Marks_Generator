@@ -6,15 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StudentsMarkActivity"
-    android:background="#abc">
+    android:background="#9AA3D6">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Student Result"
+        android:text="Student Details"
         android:textSize="35dp"
+        android:padding="12dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,11 +26,10 @@
         android:id="@+id/etId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:inputType="number"
         android:hint="Please enter student ID"
         android:textSize="25dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -40,7 +42,6 @@
         android:inputType="textPersonName"
         android:hint="Enter Student Name"
         android:textSize="25dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etId" />
@@ -86,10 +87,14 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="306dp"
+        android:layout_height="63dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
+        android:background="#3949AB"
         android:text="add student"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
