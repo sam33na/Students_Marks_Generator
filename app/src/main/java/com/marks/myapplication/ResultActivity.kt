@@ -37,11 +37,15 @@ class ResultActivity : AppCompatActivity() {
 
         val index=studentList.size-1
         //setting text for ranking
-
-
+        first.text="1st: $(getNameInPositionRank(index).capitalize()} ! "+
+                "${rankPosition()[getNameInPositionRank(index)]}"
+        second.text="1st: $(getNameInPositionRank(index-1).capitalize()} ! "+
+                "${rankPosition()[getNameInPositionRank(index-1)]}"
+        third.text="1st: $(getNameInPositionRank(index-2).capitalize()} ! "+
+                "${rankPosition()[getNameInPositionRank(index-2)]}"
     }
     //map function for positioning ranks and subject marks
-    private fun positionRank():Map<String,Double>
+    private fun rankPosition():Map<String,Double>
     {
         //creating a map w/ name as key and percentage as value
         for(i in studentList.indices)
@@ -52,4 +56,10 @@ class ResultActivity : AppCompatActivity() {
         return  positionalMap.toList()
                 .sortedBy { (key,value)->value }.toMap()
     }
+    //getting the 'name' i.e. key from the map
+    private fun getNameInPositionRank(index: Int): String{
+        return rankPosition().toList()[index].toString().split(",")[0].drop(1)
+    }
+
+
 }
