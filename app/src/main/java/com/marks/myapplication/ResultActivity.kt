@@ -10,14 +10,14 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var first: TextView
     private lateinit var second: TextView
     private lateinit var third: TextView
-    private lateinit var stdFirst: TextView
-    private lateinit var stdSecond: TextView
-    private lateinit var stdThird: TextView
+    private lateinit var subTop: TextView
+    private lateinit var subMid: TextView
+    private lateinit var subLow: TextView
 
 
     private var studentList: List<Student> = ArrayList()
     private var positionalMap = mutableMapOf<String, Double>()
-    private var subjectMarks = mutableMapOf<String, Double>()
+    private var subjectMap = mutableMapOf<String, Double>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +26,9 @@ class ResultActivity : AppCompatActivity() {
         first=findViewById(R.id.first)
         second=findViewById(R.id.second)
         third=findViewById(R.id.third)
-        stdFirst=findViewById(R.id.stdFirst)
-        stdSecond=findViewById(R.id.stdSecond)
-        stdThird=findViewById(R.id.stdThird)
+        subTop=findViewById(R.id.stdFirst)
+        subMid=findViewById(R.id.stdSecond)
+        subLow=findViewById(R.id.stdThird)
 
         val resultIntent = intent
         if (resultIntent != null){
@@ -43,6 +43,15 @@ class ResultActivity : AppCompatActivity() {
                 "${rankPosition()[getNameInPositionRank(index-1)]}"
         third.text="1st: $(getNameInPositionRank(index-2).capitalize()} ! "+
                 "${rankPosition()[getNameInPositionRank(index-2)]}"
+        //setting text for subject
+        subTop.text = "Highest: ${getNameInSubjectRank(index).capitalize()} | " +
+                "${subjectRank()[getNameInSubjectRank(index)]}"
+
+        subMid.text = "2nd Highest: ${getNameInSubjectRank(index - 1).capitalize()} | " +
+                "${subjectRank()[getNameInSubjectRank(index - 1)]}"
+
+        subLow.text = "3rd Highest: ${getNameInSubjectRank(index - 2).capitalize()} | " +
+                "${subjectRank()[getNameInSubjectRank(index - 2)]}"
     }
     //map function for positioning ranks and subject marks
     private fun rankPosition():Map<String,Double>
@@ -56,9 +65,23 @@ class ResultActivity : AppCompatActivity() {
         return  positionalMap.toList()
                 .sortedBy { (key,value)->value }.toMap()
     }
+    private fun subjectRank():Map<String,Double>
+    {
+        //creating a map w/ name as key and percentage as value
+        for(i in studentList.indices)
+        {
+            subjectMap[studentList[i].name]=studentList[i].markAndroid
+        }
+        //sorting array in ascending
+        return  subjectMap.toList()
+                .sortedBy { (key,value)->value }.toMap()
+    }
     //getting the 'name' i.e. key from the map
     private fun getNameInPositionRank(index: Int): String{
         return rankPosition().toList()[index].toString().split(",")[0].drop(1)
+    }
+    private fun getNameInSubjectRank(index: Int): String{
+        return subjectRank().toList()[index].toString().split(",")[0].drop(1)
     }
 
 

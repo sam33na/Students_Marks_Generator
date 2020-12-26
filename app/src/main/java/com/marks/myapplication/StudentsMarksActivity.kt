@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import com.marks.Student
+import java.io.Serializable
 
-class StudentsMarknActivity : AppCompatActivity(), View.OnClickListener {
+class StudentsMarkActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var stdId:EditText
     private lateinit var stdName:EditText
     private lateinit var androidM:EditText
@@ -18,6 +19,7 @@ class StudentsMarknActivity : AppCompatActivity(), View.OnClickListener {
     //creating list for storing students data
     private lateinit var studentList:MutableList<Student>
     private lateinit var student:Student
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_marks)
@@ -35,6 +37,8 @@ class StudentsMarknActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?)
     {
+        if(v?.id==studentAdd.id)
+        {
         //assigning an instance of class 'Student' to variable 'student' i.e. creating object
         student = Student(stdId.text.toString().toInt(), stdName.text.toString(),
                 androidM.text.toString().toDouble(), apiM.text.toString().toDouble(),
@@ -44,7 +48,7 @@ class StudentsMarknActivity : AppCompatActivity(), View.OnClickListener {
 
         //altering the button text
         if (studentList.size == 2){
-            studentAdd.text = "Add and Show All"
+            studentAdd.text = "Add to List"
         }
         //opening another activity once the list size reaches 3
         else if (studentList.size == 3){
@@ -53,11 +57,12 @@ class StudentsMarknActivity : AppCompatActivity(), View.OnClickListener {
             }
             startActivity(displayResultIntent)
             //assigning the button with its actual text and clearing the values in list
-            studentAdd.text = getString(R.string.student_Add)
+            studentAdd.text = "Add to List"
             studentList.clear()
         }
         //clearing all the editText for each button click
         clearAll()
+    }
     }
 
 private fun clearAll(){
